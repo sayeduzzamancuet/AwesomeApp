@@ -1,0 +1,16 @@
+<app-portfolio-header [name]="data.name" [navItems]="data.navItems"></app-portfolio-header>
+
+<main>
+  <app-hero-section [hero]="data.hero"></app-hero-section>
+  <app-about-section
+    [intro]="data.about.intro"
+    [availability]="data.about.availability"
+    [stats]="data.about.stats"
+  ></app-about-section>
+  <app-skills-section [categories]="data.skills"></app-skills-section>
+  <app-experience-section [items]="data.experience"></app-experience-section>
+  <app-projects-section [projects]="data.projects"></app-projects-section>
+  <app-contact-section [heading]="data.contact.heading" [description]="data.contact.description"></app-contact-section>
+  <app-portfolio-footer [copyright]="data.footer.copyright" [links]="data.footer.links"></app-portfolio-footer>
+</main>
+

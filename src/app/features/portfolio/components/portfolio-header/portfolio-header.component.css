@@ -1,0 +1,32 @@
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: var(--secondary);
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-btn {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .nav-links.is-open {
+    display: flex;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    padding: 1rem;
+    flex-direction: column;
+    background: var(--bg-white);
+    border-bottom: 1px solid var(--border);
+    box-shadow: var(--shadow-md);
+  }
+}
+

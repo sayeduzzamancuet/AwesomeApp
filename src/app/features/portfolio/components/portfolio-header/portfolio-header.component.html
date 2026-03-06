@@ -1,0 +1,29 @@
+<header>
+  <div class="container">
+    <nav>
+      <a href="#" class="logo" (click)="closeMenu()">&lt;{{ name }}<span>Dev</span>/&gt;</a>
+
+      <button
+        type="button"
+        class="mobile-menu-btn"
+        [attr.aria-expanded]="menuOpen()"
+        aria-label="Toggle navigation menu"
+        (click)="toggleMenu()"
+      >
+        <span aria-hidden="true">{{ menuOpen() ? 'x' : '☰' }}</span>
+      </button>
+
+      <ul class="nav-links" [class.is-open]="menuOpen()">
+        @for (item of navItems; track item.id) {
+          <li>
+            <a [attr.href]="'#' + item.id" (click)="closeMenu()">{{ item.label }}</a>
+          </li>
+        }
+        <li>
+          <a href="#contact" class="btn btn-primary" (click)="closeMenu()">Contact Me</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+

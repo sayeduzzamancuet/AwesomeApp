@@ -1,0 +1,17 @@
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.code-line {
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+@media (max-width: 768px) {
+  .hero-actions {
+    justify-content: center;
+  }
+}
+

@@ -1,0 +1,28 @@
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <div appFadeIn class="hero-text">
+        <h1>
+          {{ hero.heading.replace(hero.highlightedHeading, '').trim() }}
+          <br>
+          <span class="highlight">{{ hero.highlightedHeading }}</span>
+        </h1>
+        <p>{{ hero.description }}</p>
+        <div class="hero-actions">
+          <a [attr.href]="'#' + hero.primaryCta.id" class="btn btn-primary">{{ hero.primaryCta.label }}</a>
+          <a [attr.href]="'#' + hero.secondaryCta.id" class="btn btn-outline">{{ hero.secondaryCta.label }}</a>
+        </div>
+      </div>
+
+      <div appFadeIn class="hero-image">
+        <img [src]="hero.imageUrl" [alt]="hero.imageAlt" loading="eager">
+        <div class="code-block" aria-hidden="true">
+          @for (line of hero.codeLines; track line.text + $index) {
+            <span class="code-line" [class]="lineClass(line.type)">{{ line.text }}</span>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+

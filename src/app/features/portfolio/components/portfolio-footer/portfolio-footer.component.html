@@ -1,0 +1,11 @@
+<footer>
+  <div class="container">
+    <p class="copyright">{{ copyright }}</p>
+    <div class="footer-links">
+      @for (link of links; track link.label) {
+        <a [href]="link.href" target="_blank" rel="noopener noreferrer">{{ link.label }}</a>
+      }
+    </div>
+  </div>
+</footer>
+

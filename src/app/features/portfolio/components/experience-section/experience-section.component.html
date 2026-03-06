@@ -1,0 +1,17 @@
+<section id="experience" class="experience section-offset">
+  <div class="container">
+    <h2 appFadeIn class="section-title">Professional Experience</h2>
+    <div class="timeline">
+      @for (item of items; track item.dateRange + item.company) {
+        <article appFadeIn class="timeline-item">
+          <div class="timeline-dot"></div>
+          <p class="timeline-date">{{ item.dateRange }}</p>
+          <h3 class="timeline-title">{{ item.title }}</h3>
+          <span class="timeline-company">{{ item.company }}</span>
+          <p class="timeline-desc">{{ item.description }}</p>
+        </article>
+      }
+    </div>
+  </div>
+</section>
+

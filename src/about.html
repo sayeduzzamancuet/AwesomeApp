@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sayed Uz Zaman | Senior Full-Stack .NET & Angular Engineer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #0f172a;
+            --accent: #38bdf8;
+            --bg-light: #f8fafc;
+            --bg-white: #ffffff;
+            --text-main: #334155;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-main);
+            background-color: var(--bg-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            text-align: center;
+            color: var(--secondary);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--primary);
+            margin: 0.5rem auto 0;
+            border-radius: 2px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+            border: 1px solid var(--primary);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        header {
+            background-color: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--secondary);
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            color: var(--text-light);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+
+        .hero {
+            padding: 8rem 0 4rem;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: var(--secondary);
+        }
+
+        .hero-text .highlight {
+            color: var(--primary);
+        }
+
+        .hero-text p {
+            font-size: 1.25rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            max-width: 500px;
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: var(--shadow-lg);
+            transform: perspective(1000px) rotateY(-5deg) rotateX(5deg);
+            transition: transform 0.3s ease;
+        }
+        
+        .hero-image:hover img {
+             transform: perspective(1000px) rotateY(0deg) rotateX(0deg);
+        }
+
+        .code-block {
+            background: #1e293b;
+            padding: 1.5rem;
+            border-radius: 8px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            color: #e2e8f0;
+            box-shadow: var(--shadow-lg);
+            position: absolute;
+            bottom: -20px;
+            left: -20px;
+            width: 320px;
+            z-index: 10;
+            border: 1px solid #334155;
+        }
+
+        .code-line {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        .c-purple { color: #c084fc; }
+        .c-blue { color: #60a5fa; }
+        .c-green { color: #4ade80; }
+        .c-gray { color: #94a3b8; }
+
+        .about {
+            padding: 6rem 0;
+            background-color: var(--bg-white);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .stat-card {
+            background: var(--bg-light);
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid var(--border);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: block;
+        }
+
+        .stat-label {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .skills {
+            padding: 6rem 0;
+            background-color: var(--bg-light);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: var(--bg-white);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.2s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .skill-category h3 {
+            margin-bottom: 1.5rem;
+            color: var(--secondary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            background: #eff6ff;
+            color: var(--primary);
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .experience {
+            padding: 6rem 0;
+            background-color: var(--bg-white);
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background: var(--border);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 2rem;
+            padding-bottom: 3rem;
+        }
+
+        .timeline-item:last-child {
+            padding-bottom: 0;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: -5px;
+            top: 0;
+            width: 12px;
+            height: 12px;
+            background: var(--primary);
+            border-radius: 50%;
+            border: 2px solid white;
+            box-shadow: 0 0 0 2px var(--primary);
+        }
+
+        .timeline-date {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .timeline-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-company {
+            font-weight: 500;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .timeline-desc {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        .projects {
+            padding: 6rem 0;
+            background-color: var(--bg-light);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--bg-white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .project-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover .project-image img {
+            transform: scale(1.05);
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--secondary);
+        }
+
+        .project-desc {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-tech {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-tech span {
+            font-size: 0.75rem;
+            background: #f1f5f9;
+            color: #64748b;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .link-text {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .link-text:hover {
+            text-decoration: underline;
+        }
+
+        .contact {
+            padding: 6rem 0;
+            background-color: var(--secondary);
+            color: white;
+            text-align: center;
+        }
+
+        .contact h2 {
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact p {
+            color: #94a3b8;
+            max-width: 600px;
+            margin: 0 auto 3rem;
+        }
+
+        .contact-form {
+            max-width: 500px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            color: #cbd5e1;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.75rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 6px;
+            color: white;
+            font-family: inherit;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        footer {
+            background-color: #020617;
+            color: #64748b;
+            padding: 2rem 0;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 2rem;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-text p {
+                margin: 0 auto 2rem;
+            }
+
+            .hero-image {
+                display: none;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .code-block {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">&lt;Sayed<span>Dev</span>/&gt;</a>
+                <ul class="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact" class="btn btn-primary" style="padding: 0.5rem 1rem;">Contact Me</a></li>
+                </ul>
+                <button class="mobile-menu-btn">☰</button>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text fade-in">
+                    <h1>Building Scalable <br><span class="highlight">Enterprise Solutions</span></h1>
+                    <p>Tech Lead & Senior Full-Stack Engineer with 7.5+ years specializing in .NET Core, Angular 18, and Azure Cloud Architecture. Expert in microservices, CQRS, and Clean Architecture.</p>
+                    <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: flex-start;">
+                        <a href="#projects" class="btn btn-primary">View My Work</a>
+                        <a href="#contact" class="btn btn-outline">Download CV</a>
+                    </div>
+                </div>
+                <div class="hero-image fade-in">
+                    <img src="https://image.qwenlm.ai/public_source/41838112-6184-475a-ab01-0da0a092bf15/16a919a5b-cc86-4c48-97ac-2d1ea0115214.png" alt="Enterprise Architecture">
+                    
+                    <div class="code-block">
+                        <span class="code-line"><span class="c-purple">public class</span> <span class="c-blue">SayedUzZaman</span> : <span class="c-blue">ITechLead</span></span>
+                        <span class="code-line">{</span>
+                        <span class="code-line">&nbsp;&nbsp;<span class="c-purple">public string</span> Stack => <span class="c-green">".NET 8 & Angular 18"</span>;</span>
+                        <span class="code-line">&nbsp;&nbsp;<span class="c-purple">public int</span> Experience => <span class="c-green">7.5</span>;</span>
+                        <span class="code-line">&nbsp;&nbsp;<span class="c-purple">public void</span> <span class="c-blue">Architect</span>()</span>
+                        <span class="code-line">&nbsp;&nbsp;{</span>
+                        <span class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;<span class="c-gray">// Microservices + CQRS + Clean Arch</span></span>
+                        <span class="code-line">&nbsp;&nbsp;&nbsp;&nbsp;Solution.<span class="c-blue">Deploy</span>(Cloud.Azure);</span>
+                        <span class="code-line">&nbsp;&nbsp;}</span>
+                        <span class="code-line">}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title fade-in">About Me</h2>
+            <div class="about-grid">
+                <div class="about-text fade-in">
+                    <p>Hello! I'm <strong>Sayed Uz Zaman</strong>, a Tech Lead and Senior Full-Stack Engineer with 7.5+ years of professional experience in building scalable enterprise systems. I hold a B.Sc. in Computer Science & Engineering from Chittagong University of Engineering & Technology (2017).</p>
+                    <p>I specialize in the <strong>.NET and Angular ecosystem</strong>, architecting solutions with microservices, CQRS, and Clean Architecture. My expertise spans Microsoft Azure services (App Services, Azure DevOps, Service Bus, Azure Active Directory), ELK stack, Docker & Kubernetes.</p>
+                    <p>I excel at leading cross-functional, multicultural development teams and translating business needs into technical implementations for backend, frontend, and infrastructure following industry best practices and organizational policies.</p>
+                    <p><strong>Availability:</strong> Immediately</p>
+                </div>
+                <div class="stats-grid fade-in">
+                    <div class="stat-card">
+                        <span class="stat-number">7.5+</span>
+                        <span class="stat-label">Years Experience</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">500K+</span>
+                        <span class="stat-label">Customers Onboarded</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">11+</span>
+                        <span class="stat-label">Banks Served</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">50%</span>
+                        <span class="stat-label">Performance Gain</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title fade-in">Technical Expertise</h2>
+            <div class="skills-grid">
+                <div class="skill-category fade-in">
+                    <h3>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                        Backend (.NET)
+                    </h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">ASP.NET Core 8</span>
+                        <span class="skill-tag">C#</span>
+                        <span class="skill-tag">Web API</span>
+                        <span class="skill-tag">EF Core</span>
+                        <span class="skill-tag">Dapper</span>
+                        <span class="skill-tag">SignalR</span>
+                        <span class="skill-tag">Hangfire</span>
+                        <span class="skill-tag">xUnit</span>
+                    </div>
+                </div>
+
+                <div class="skill-category fade-in">
+                    <h3>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 7 4 4 20 4 20 7"></polyline><line x1="9" y1="20" x2="15" y2="20"></line><line x1="12" y1="4" x2="12" y2="20"></line></svg>
+                        Frontend (Angular)
+                    </h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Angular 18</span>
+                        <span class="skill-tag">TypeScript</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">HTML5/CSS3</span>
+                        <span class="skill-tag">Bootstrap</span>
+                        <span class="skill-tag">Highcharts</span>
+                        <span class="skill-tag">jQuery</span>
+                    </div>
+                </div>
+
+                <div class="skill-category fade-in">
+                    <h3>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
+                        Database & Cloud
+                    </h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">MSSQL Server</span>
+                        <span class="skill-tag">Azure SQL</span>
+                        <span class="skill-tag">PostgreSQL</span>
+                        <span class="skill-tag">Oracle</span>
+                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">Redis</span>
+                        <span class="skill-tag">Azure Services</span>
+                    </div>
+                </div>
+
+                <div class="skill-category fade-in">
+                    <h3>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                        DevOps & Security
+                    </h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Azure DevOps</span>
+                        <span class="skill-tag">CI/CD Pipelines</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">Kubernetes</span>
+                        <span class="skill-tag">Sonar Cloud</span>
+                        <span class="skill-tag">Fortify</span>
+                        <span class="skill-tag">Identity Server</span>
+                        <span class="skill-tag">JWT Token</span>
+                    </div>
+                </div>
+
+                <div class="skill-category fade-in">
+                    <h3>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                        Monitoring & Tools
+                    </h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">ELK Stack</span>
+                        <span class="skill-tag">Elastic APM</span>
+                        <span class="skill-tag">Dynatrace</span>
+                        <span class="skill-tag">Kibana</span>
+                        <span class="skill-tag">Jira</span>
+                        <span class="skill-tag">Git/SVN</span>
+                        <span class="skill-tag">Google Analytics</span>
+                    </div>
+                </div>
+
+                <div class="skill-category fade-in">
+                    <h3>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                        Industries
+                    </h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">IT Services</span>
+                        <span class="skill-tag">Bank & Finance</span>
+                        <span class="skill-tag">Oil & Gas</span>
+                        <span class="skill-tag">E-Commerce</span>
+                        <span class="skill-tag">Healthcare</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="experience">
+        <div class="container">
+            <h2 class="section-title fade-in">Professional Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item fade-in">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">September 2023 - March 2026</div>
+                    <h3 class="timeline-title">Senior Software Engineer (Tech Lead)</h3>
+                    <span class="timeline-company">Skill Quotient Technologies Sdn Bhd (Client: PETRONAS)</span>
+                    <p class="timeline-desc">Led development of COMPASS platform ensuring efficient collaboration with teams and business clients. Followed Agile Scrum methodology, wrote optimized unit-tested code, reviewed PRs, and monitored code quality. Deployed applications through automated Azure DevOps pipelines. Achieved 50% performance improvement and resolved critical security vulnerabilities. Mentored new developers on best practices and coding standards.</p>
+                </div>
+                <div class="timeline-item fade-in">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">February 2021 - August 2023</div>
+                    <h3 class="timeline-title">Senior Software Engineer</h3>
+                    <span class="timeline-company">Gigatech Ltd</span>
+                    <p class="timeline-desc">Assisted 11+ private commercial banks in Bangladesh to run solutions uninterruptedly in their private cloud. Led EKYC SaaS platform serving 500,000+ unique customers. Performed requirements analysis, development, performance optimization, and security implementation. Led team skill development and conducted R&D for cyber attack mitigation.</p>
+                </div>
+                <div class="timeline-item fade-in">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">May 2018 - February 2021</div>
+                    <h3 class="timeline-title">Software Engineer</h3>
+                    <span class="timeline-company">Oscillosoft Pty. Ltd</span>
+                    <p class="timeline-desc">Communicated with offshore clients, translated business requirements into technical solutions. Wrote scalable, reusable code following OOP concepts and best practices. Performed development, testing, and live deployment maintaining SDLC. Monitored applications using Elastic APM and Kibana. Provided lead developer support for multiple projects including Ceylon Exchange and Bapcor Stock Taker.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title fade-in">Major Projects</h2>
+            <div class="projects-grid">
+                
+                <div class="project-card fade-in">
+                    <div class="project-image">
+                        <img src="https://image.qwenlm.ai/public_source/41838112-6184-475a-ab01-0da0a092bf15/16a919a5b-cc86-4c48-97ac-2d1ea0115214.png" alt="COMPASS Platform">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">COMPASS by PETRONAS</h3>
+                        <p class="project-desc">Strategic internal platform for forward-looking business planning. Unified disparate data into microservices architecture, enabling users to model, compare, and visualize scenarios using machine learning for informed strategic decisions.</p>
+                        <div class="project-tech">
+                            <span>ASP.NET Core 8</span>
+                            <span>Angular 18</span>
+                            <span>SignalR</span>
+                            <span>Azure SQL</span>
+                            <span>ELK Stack</span>
+                        </div>
+                        <div class="project-links">
+                            <span class="link-text">✓ 50% Performance Improvement</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in">
+                    <div class="project-image">
+                        <img src="https://image.qwenlm.ai/public_source/41838112-6184-475a-ab01-0da0a092bf15/10f6ceef8-83f5-46eb-aa10-021955192dac.png" alt="EKYC Platform">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">EKYC by Gigatech</h3>
+                        <p class="project-desc">End-to-end SaaS solution for digitizing customer onboarding for Bangladesh's financial institutions. Automated compliance with Bangladesh Bank's KYC guidelines. Successfully onboarded 500,000+ unique customers with biometric verification, OCR, and digital account opening.</p>
+                        <div class="project-tech">
+                            <span>ASP.NET Core</span>
+                            <span>Angular</span>
+                            <span>Docker</span>
+                            <span>Kubernetes</span>
+                            <span>Oracle</span>
+                        </div>
+                        <div class="project-links">
+                            <span class="link-text">✓ 500K+ Customers</span>
+                            <span class="link-text">✓ 11+ Banks</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in">
+                    <div class="project-image">
+                        <img src="https://image.qwenlm.ai/public_source/41838112-6184-475a-ab01-0da0a092bf15/104feab6f-e91a-4846-846a-d232e3ec4729.png" alt="Ceylon Exchange">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Ceylon Exchange</h3>
+                        <p class="project-desc">Currency exchange solution for Australia combining .NET, Java Spring Boot, and ASP.NET Web technologies. Covered desktop teller machine software, API services, and web application for seamless currency transactions.</p>
+                        <div class="project-tech">
+                            <span>ASP.NET Web API</span>
+                            <span>Java Spring Boot</span>
+                            <span>MySQL</span>
+                            <span>Redis</span>
+                            <span>AWS</span>
+                        </div>
+                        <div class="project-links">
+                            <span class="link-text">✓ Multi-Platform</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card fade-in">
+                    <div class="project-image">
+                        <img src="https://image.qwenlm.ai/public_source/41838112-6184-475a-ab01-0da0a092bf15/16a919a5b-cc86-4c48-97ac-2d1ea0115214.png" alt="Bapcor Stock Taker">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Bapcor Stock Taker</h3>
+                        <p class="project-desc">N-tier store keeping solution used by HP for maintaining store items. Web and mobile apps enabling efficient scanning and tracking of inventory. Achieved 80% performance improvement through optimization.</p>
+                        <div class="project-tech">
+                            <span>ASP.NET Web API</span>
+                            <span>SQL Server</span>
+                            <span>Mobile Apps</span>
+                            <span>AWS VM</span>
+                        </div>
+                        <div class="project-links">
+                            <span class="link-text">✓ 80% Performance Gain</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="fade-in">Let's Work Together</h2>
+            <p class="fade-in">Available immediately for new opportunities. Whether you have a question about my experience with .NET, Angular, or Azure architecture, I'd love to hear from you!</p>
+            
+            <form class="contact-form fade-in" onsubmit="event.preventDefault(); alert('Thank you for your message! I will get back to you soon.');">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" class="form-control" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" class="form-control" placeholder="your@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" rows="4" class="form-control" placeholder="Your message..." required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%; border: none;">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Sayed Uz Zaman. Tech Lead & Senior Full-Stack .NET Engineer.</p>
+            <div style="margin-top: 1rem; display: flex; justify-content: center; gap: 1.5rem;">
+                <a href="#">LinkedIn</a>
+                <a href="#">GitHub</a>
+                <a href="#">Email</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(element => {
+            observer.observe(element);
+        });
+
+        const mobileBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileBtn.addEventListener('click', () => {
+            if (navLinks.style.display === 'flex') {
+                navLinks.style.display = 'none';
+            } else {
+                navLinks.style.display = 'flex';
+                navLinks.style.flexDirection = 'column';
+                navLinks.style.position = 'absolute';
+                navLinks.style.top = '100%';
+                navLinks.style.left = '0';
+                navLinks.style.width = '100%';
+                navLinks.style.background = 'white';
+                navLinks.style.padding = '1rem';
+                navLinks.style.boxShadow = '0 4px 6px -1px rgb(0 0 0 / 0.1)';
+            }
+        });
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                navLinks.style.display = 'flex';
+                navLinks.style.flexDirection = 'row';
+                navLinks.style.position = 'static';
+                navLinks.style.boxShadow = 'none';
+                navLinks.style.padding = '0';
+            } else {
+                navLinks.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
+
