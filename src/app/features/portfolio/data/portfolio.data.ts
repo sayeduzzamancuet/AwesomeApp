@@ -151,9 +151,9 @@ export const PORTFOLIO_DATA: PortfolioData = {
   footer: {
     copyright: '© 2026 Sayed Uz Zaman. Tech Lead & Senior Full-Stack .NET Engineer.',
     links: [
-      { label: 'LinkedIn', href: '#' },
-      { label: 'GitHub', href: '#' },
-      { label: 'Email', href: '#' }
+      { label: 'LinkedIn', href: 'https://www.linkedin.com/in/sayeduzzamancuet' },
+      { label: 'GitHub', href: 'https://github.com/sayeduzzamancuet' },
+      { label: 'Email', href: 'sayeduzzamancuet@gmail.com' }
     ]
   }
 };
