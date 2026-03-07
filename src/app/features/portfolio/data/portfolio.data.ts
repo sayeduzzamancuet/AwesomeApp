@@ -117,7 +117,7 @@ export const PORTFOLIO_DATA: PortfolioData = {
       description:
         'End-to-end digital onboarding platform with OCR and biometric workflows for compliant account creation and KYC processing.',
       imageUrl:
-        'https://image.qwenlm.ai/public_source/41838112-6184-475a-ab01-0da0a092bf15/10f6ceef8-83f5-46eb-aa10-021955192dac.png',
+        '/assets/images/ekyc.png',
       imageAlt: 'EKYC platform preview',
       tech: ['ASP.NET Core', 'Angular', 'Docker', 'Kubernetes', 'Oracle'],
       highlights: ['500K+ customers', '11+ banks']
@@ -127,7 +127,7 @@ export const PORTFOLIO_DATA: PortfolioData = {
       description:
         'Currency exchange suite spanning teller desktop software, APIs, and web channels using a mixed .NET and Java service ecosystem.',
       imageUrl:
-        'https://image.qwenlm.ai/public_source/41838112-6184-475a-ab01-0da0a092bf15/104feab6f-e91a-4846-846a-d232e3ec4729.png',
+        '/assets/images/ceylon.png',
       imageAlt: 'Ceylon Exchange platform preview',
       tech: ['ASP.NET Web API', 'Java Spring Boot', 'MySQL', 'Redis', 'AWS'],
       highlights: ['Multi-platform architecture']
