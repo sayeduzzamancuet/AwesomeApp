@@ -1,7 +1,7 @@
 /* ================================================
    macOS Design System — Ventura/Sonoma Aesthetic
+   Fonts loaded via <link> in index.html (non-blocking)
    ================================================ */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
 :root {
   /* Backgrounds */
