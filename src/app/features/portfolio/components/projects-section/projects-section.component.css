@@ -1,2 +1,79 @@
 /* section styles are in global stylesheet */
 
+/* ================================================
+   Project Banner — macOS Sonoma gradient art cards
+   Each project gets a unique, curated dark gradient
+   inspired by macOS Sonoma wallpaper palettes.
+   ================================================ */
+
+.project-banner {
+  height: 160px;
+  border-radius: var(--r-xl) var(--r-xl) 0 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+/* Subtle dot-grid overlay — macOS texture */
+.project-banner-grid {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255,255,255,0.08) 1px, transparent 1px);
+  background-size: 22px 22px;
+  pointer-events: none;
+}
+
+/* Large initial letter — elegant typographic focal point */
+.project-banner-initial {
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: 5rem;
+  font-weight: 900;
+  letter-spacing: -0.06em;
+  color: rgba(255, 255, 255, 0.18);
+  line-height: 1;
+  user-select: none;
+  position: relative;
+  z-index: 1;
+  text-transform: uppercase;
+}
+
+/* 1 — COMPASS — PETRONAS
+   Deep navy → Azure: enterprise, oil & gas, gravity */
+.project-banner--1 {
+  background:
+    radial-gradient(ellipse 80% 60% at 70% 30%, rgba(0,113,227,0.4) 0%, transparent 60%),
+    linear-gradient(140deg, #030d1f 0%, #0a2147 55%, #0e3a7a 100%);
+}
+
+/* 2 — EKYC Platform
+   Midnight plum → violet: identity, biometric, trust */
+.project-banner--2 {
+  background:
+    radial-gradient(ellipse 70% 60% at 30% 40%, rgba(139,92,246,0.45) 0%, transparent 55%),
+    linear-gradient(140deg, #0f0320 0%, #2d0a5c 55%, #4c1d95 100%);
+}
+
+/* 3 — Ceylon Exchange
+   Obsidian → warm amber: currency, finance, gold */
+.project-banner--3 {
+  background:
+    radial-gradient(ellipse 70% 55% at 65% 35%, rgba(245,158,11,0.4) 0%, transparent 58%),
+    linear-gradient(140deg, #180d00 0%, #5c2e00 55%, #92400e 100%);
+}
+
+/* 4 — Bapcor Stock Taker
+   Deep forest → emerald: logistics, inventory, growth */
+.project-banner--4 {
+  background:
+    radial-gradient(ellipse 65% 55% at 60% 35%, rgba(34,197,94,0.38) 0%, transparent 55%),
+    linear-gradient(140deg, #010f06 0%, #0a3d1f 55%, #14532d 100%);
+}
+
+/* Hover — gently brighten the radial spotlight */
+.project-card:hover .project-banner--1 { filter: brightness(1.12); }
+.project-card:hover .project-banner--2 { filter: brightness(1.12); }
+.project-card:hover .project-banner--3 { filter: brightness(1.12); }
+.project-card:hover .project-banner--4 { filter: brightness(1.12); }

@@ -2,10 +2,11 @@
   <div class="container">
     <h2 appFadeIn class="section-title">Major Projects</h2>
     <div class="projects-grid">
-      @for (project of projects; track project.title) {
+      @for (project of projects; track project.title; let i = $index) {
         <article appFadeIn class="project-card">
-          <div class="project-image">
-            <img [src]="project.imageUrl" [alt]="project.imageAlt" loading="lazy">
+          <div class="project-banner" [class]="'project-banner--' + (i + 1)">
+            <div class="project-banner-grid"></div>
+            <span class="project-banner-initial">{{ project.title.slice(0, 1) }}</span>
           </div>
           <div class="project-content">
             <h3 class="project-title">{{ project.title }}</h3>

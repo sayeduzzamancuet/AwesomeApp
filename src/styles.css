@@ -348,6 +348,12 @@ nav { display: flex; justify-content: space-between; align-items: center; }
   box-shadow: var(--s4);
   border: 1px solid var(--line);
   display: block;
+  transition: transform 0.5s var(--ease), box-shadow 0.5s var(--ease);
+}
+
+.hero-image:hover img {
+  transform: scale(1.02);
+  box-shadow: 0 48px 80px rgba(0,0,0,0.16), 0 16px 32px rgba(0,0,0,0.08);
 }
 
 /* Code snippet — Xcode dark panel */
@@ -649,21 +655,7 @@ nav { display: flex; justify-content: space-between; align-items: center; }
   box-shadow: var(--s3);
 }
 
-.project-image {
-  height: 175px;
-  overflow: hidden;
-  background: var(--bg);
-}
-
-.project-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.45s var(--ease);
-}
-
-.project-card:hover .project-image img { transform: scale(1.04); }
+/* .project-image / img replaced by CSS gradient banners in component CSS */
 
 .project-content {
   padding: 1.5rem;

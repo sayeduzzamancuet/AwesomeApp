@@ -17,8 +17,8 @@ export const PORTFOLIO_DATA: PortfolioData = {
     primaryCta: { id: 'projects', label: 'See My Work' },
     secondaryCta: { id: 'contact', label: "Let's Talk" },
     imageUrl:
-      'https://image.qwenlm.ai/public_source/41838112-6184-475a-ab01-0da0a092bf15/16a919a5b-cc86-4c48-97ac-2d1ea0115214.png',
-    imageAlt: 'Enterprise architecture illustration',
+      'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=900&auto=format&fit=crop&q=80',
+    imageAlt: 'Developer at a MacBook writing code',
     codeLines: [
       { type: 'keyword', text: 'public class' },
       { type: 'type', text: ' SayedUzZaman' },
