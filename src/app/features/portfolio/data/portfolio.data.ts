@@ -2,7 +2,7 @@ import { PortfolioData } from '../../../core/models/portfolio.models';
 
 export const PORTFOLIO_DATA: PortfolioData = {
   name: 'Sayed Uz Zaman',
-  role: 'Senior Full-Stack .NET & Angular Engineer',
+  role: 'Tech Lead · Full-Stack .NET & Angular Engineer',
   navItems: [
     { id: 'about', label: 'About' },
     { id: 'skills', label: 'Skills' },
@@ -10,12 +10,12 @@ export const PORTFOLIO_DATA: PortfolioData = {
     { id: 'projects', label: 'Projects' }
   ],
   hero: {
-    heading: 'Building Scalable Enterprise Solutions',
-    highlightedHeading: 'Enterprise Solutions',
+    heading: 'I Build Software That Scales',
+    highlightedHeading: 'Software That Scales',
     description:
-      'Tech Lead & Senior Full-Stack Engineer with 7.5+ years specializing in .NET Core, Angular, and Azure Cloud Architecture. Expert in microservices, CQRS, and Clean Architecture.',
-    primaryCta: { id: 'projects', label: 'View My Work' },
-    secondaryCta: { id: 'contact', label: 'Contact Me' },
+      '7.5+ years turning complex requirements into clean, production-grade systems. Tech Lead specialising in .NET Core, Angular, and Azure — shipping features teams are proud of.',
+    primaryCta: { id: 'projects', label: 'See My Work' },
+    secondaryCta: { id: 'contact', label: "Let's Talk" },
     imageUrl:
       'https://image.qwenlm.ai/public_source/41838112-6184-475a-ab01-0da0a092bf15/16a919a5b-cc86-4c48-97ac-2d1ea0115214.png',
     imageAlt: 'Enterprise architecture illustration',
@@ -25,25 +25,25 @@ export const PORTFOLIO_DATA: PortfolioData = {
       { type: 'plain', text: ' : ' },
       { type: 'type', text: 'ITechLead' },
       { type: 'plain', text: ' {' },
-      { type: 'comment', text: '// Microservices + CQRS + Clean Architecture' },
+      { type: 'comment', text: '// Clean Arch · CQRS · Microservices' },
       { type: 'keyword', text: 'public string' },
       { type: 'plain', text: ' Stack => ' },
-      { type: 'string', text: '".NET 8 + Angular"' },
+      { type: 'string', text: '".NET 8 + Angular 18"' },
       { type: 'plain', text: ';' }
     ]
   },
   about: {
     intro: [
-      "Hello! I'm Sayed Uz Zaman, a Tech Lead and Senior Full-Stack Engineer with 7.5+ years of professional experience in building scalable enterprise systems.",
-      'I specialize in the .NET and Angular ecosystem, architecting solutions with microservices, CQRS, and Clean Architecture across backend, frontend, and infrastructure.',
-      'I lead cross-functional teams, perform architecture reviews, and deliver secure cloud-native solutions using Azure and modern DevOps workflows.'
+      "I'm Sayed — a Tech Lead and Full-Stack Engineer who's spent 7.5+ years building systems that handle real load, real users, and real consequences.",
+      'My stack is .NET Core + Angular. My patterns are Clean Architecture, CQRS, and microservices. My standard is code that stays maintainable two years after I write it.',
+      "I've shipped to production across banking, oil & gas, and enterprise SaaS — leading teams, owning architecture, and doing the work myself when it counts."
     ],
-    availability: 'Immediately available for opportunities.',
+    availability: 'Open to new opportunities — immediately available.',
     stats: [
       { value: '7.5+', label: 'Years Experience' },
       { value: '500K+', label: 'Customers Onboarded' },
       { value: '11+', label: 'Banks Served' },
-      { value: '50%', label: 'Performance Gain' }
+      { value: '50%', label: 'Performance Gained' }
     ]
   },
   skills: [
@@ -80,76 +80,74 @@ export const PORTFOLIO_DATA: PortfolioData = {
   ],
   experience: [
     {
-      dateRange: 'September 2023 - March 2026',
-      title: 'Senior Software Engineer (Tech Lead)',
-      company: 'Skill Quotient Technologies (Client: PETRONAS)',
+      dateRange: 'September 2023 – March 2026',
+      title: 'Senior Software Engineer · Tech Lead',
+      company: 'Skill Quotient Technologies — Client: PETRONAS',
       description:
-        'Led COMPASS platform development, improved system performance by 50%, enforced secure coding practices, and mentored engineers while driving Agile delivery and CI/CD through Azure DevOps.'
+        "Tech-led COMPASS, PETRONAS's strategic planning platform. Cut system response times by 50% through targeted optimisation, established CI/CD on Azure DevOps, enforced secure-by-default coding standards, and mentored a cross-functional engineering team."
     },
     {
-      dateRange: 'February 2021 - August 2023',
+      dateRange: 'February 2021 – August 2023',
       title: 'Senior Software Engineer',
       company: 'Gigatech Ltd',
       description:
-        'Delivered EKYC SaaS platform that onboarded 500,000+ users and supported 11+ banks, including security hardening, scaling, and cross-team collaboration in private cloud environments.'
+        'Architected and shipped the EKYC digital-onboarding SaaS platform end-to-end — scaling to 500K+ customers across 11+ banks. Hardened security, containerised services with Docker & Kubernetes, and navigated a regulated private-cloud environment.'
     },
     {
-      dateRange: 'May 2018 - February 2021',
+      dateRange: 'May 2018 – February 2021',
       title: 'Software Engineer',
       company: 'Oscillosoft Pty. Ltd',
       description:
-        'Built and maintained multi-project enterprise systems, translated offshore requirements into reliable technical implementations, and owned delivery throughout the SDLC lifecycle.'
+        'Owned full-cycle delivery of multiple enterprise systems — from offshore requirement analysis to production deployment — across web, API, and desktop platforms.'
     }
   ],
   projects: [
     {
-      title: 'COMPASS by PETRONAS',
+      title: 'COMPASS — PETRONAS',
       description:
-        'Strategic planning platform unifying enterprise data into scalable services and scenario-driven workflows for business decision support.',
+        "PETRONAS's enterprise strategic-planning hub. Unified siloed data into scenario-driven workflows and slashed response times by 50% through query optimisation and intelligent caching.",
       imageUrl:
         'https://image.qwenlm.ai/public_source/41838112-6184-475a-ab01-0da0a092bf15/16a919a5b-cc86-4c48-97ac-2d1ea0115214.png',
       imageAlt: 'COMPASS platform preview',
       tech: ['ASP.NET Core', 'Angular', 'SignalR', 'Azure SQL', 'ELK Stack'],
-      highlights: ['50% performance improvement']
+      highlights: ['50% performance improvement', 'Tech lead ownership']
     },
     {
       title: 'EKYC Platform',
       description:
-        'End-to-end digital onboarding platform with OCR and biometric workflows for compliant account creation and KYC processing.',
-      imageUrl:
-        'assets/images/ekyc.png',
+        'SaaS digital-onboarding platform with OCR and biometric verification. Built for compliance, containerised for scale, and trusted by 11+ banks to onboard real customers.',
+      imageUrl: 'assets/images/ekyc.png',
       imageAlt: 'EKYC platform preview',
       tech: ['ASP.NET Core', 'Angular', 'Docker', 'Kubernetes', 'Oracle'],
-      highlights: ['500K+ customers', '11+ banks']
+      highlights: ['500K+ customers onboarded', '11+ banks served']
     },
     {
       title: 'Ceylon Exchange',
       description:
-        'Currency exchange suite spanning teller desktop software, APIs, and web channels using a mixed .NET and Java service ecosystem.',
-      imageUrl:
-        'assets/images/ceylon.png',
+        'Cross-platform currency exchange suite — teller desktop app, REST APIs, and a web channel — powered by a polyglot .NET + Java Spring Boot service layer.',
+      imageUrl: 'assets/images/ceylon.png',
       imageAlt: 'Ceylon Exchange platform preview',
       tech: ['ASP.NET Web API', 'Java Spring Boot', 'MySQL', 'Redis', 'AWS'],
-      highlights: ['Multi-platform architecture']
+      highlights: ['Multi-platform architecture', 'Desktop + Web + API']
     },
     {
       title: 'Bapcor Stock Taker',
       description:
-        'Inventory and scanning solution delivered across web and mobile platforms with significant throughput optimization.',
+        'Warehouse inventory and barcode-scanning solution delivered across web and mobile. Optimised scanning pipeline and cut throughput time by 80%.',
       imageUrl:
         'https://image.qwenlm.ai/public_source/41838112-6184-475a-ab01-0da0a092bf15/16a919a5b-cc86-4c48-97ac-2d1ea0115214.png',
       imageAlt: 'Bapcor Stock Taker preview',
       tech: ['ASP.NET Web API', 'SQL Server', 'Mobile Apps', 'AWS VM'],
-      highlights: ['80% performance gain']
+      highlights: ['80% throughput improvement']
     }
   ],
   contact: {
-    heading: "Let's Work Together",
+    heading: "Let's Build Something Great",
     description:
-      "Available immediately for new opportunities. If you need support with .NET, Angular, or Azure architecture, let's connect."
+      'Open to new opportunities — remote or on-site. Whether you need a Tech Lead, a senior engineer, or both, I am ready to contribute from day one.'
   },
   footer: {
-    copyright: '© 2026 Sayed Uz Zaman. Tech Lead & Senior Full-Stack .NET Engineer.',
+    copyright: '© 2026 Sayed Uz Zaman · Tech Lead & Senior Full-Stack Engineer',
     links: [
       { label: 'LinkedIn', href: 'https://www.linkedin.com/in/sayeduzzamancuet' },
       { label: 'GitHub', href: 'https://github.com/sayeduzzamancuet' },

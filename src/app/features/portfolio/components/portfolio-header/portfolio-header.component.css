@@ -4,7 +4,7 @@
   border: 0;
   cursor: pointer;
   font-size: 1.5rem;
-  color: var(--secondary);
+  color: var(--text);
 }
 
 @media (max-width: 768px) {
@@ -22,14 +22,16 @@
     top: 100%;
     left: 0;
     width: 100%;
-    padding: 1rem;
+    padding: 1rem 2rem;
     flex-direction: column;
-    background: var(--bg-white);
+    gap: 1rem;
+    background: rgba(7, 13, 26, 0.97);
+    backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border);
     box-shadow: var(--shadow-md);
   }
 }
 
-.label-fix{
-  color:white;
+.label-fix {
+  color: white;
 }

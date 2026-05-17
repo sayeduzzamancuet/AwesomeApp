@@ -1,12 +1,15 @@
 .skill-icon {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 0.75rem;
+  font-size: 0.7rem;
+  font-weight: 700;
   display: inline-flex;
   width: 2rem;
+  height: 2rem;
   justify-content: center;
   align-items: center;
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  color: var(--primary);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  border-radius: 6px;
+  color: var(--primary-light);
+  background: rgba(99, 102, 241, 0.1);
+  flex-shrink: 0;
 }
-
